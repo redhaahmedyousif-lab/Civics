@@ -1,0 +1,14 @@
+{
+  "name": "bahrain-civics-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "منصة التربية للمواطنة — الصف الثاني الإعدادي، مملكة البحرين",
+  "scripts": {
+    "build:css": "tailwindcss -c tailwind.config.js -i assets/css/tailwind.src.css -o assets/css/tailwind.css --minify",
+    "watch:css": "tailwindcss -c tailwind.config.js -i assets/css/tailwind.src.css -o assets/css/tailwind.css --watch",
+    "start": "npx serve ."
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.16"
+  }
+}

@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>منصة التربية للمواطنة — المرجع الشامل للاختبار الأول</title>
+  <meta name="description" content="منصة تعليمية تفاعلية لطلاب الصف الثاني الإعدادي في مادة التربية للمواطنة — مملكة البحرين: مذكرة الأستاذ، المذكرة الشاملة، وبنك 30 سؤالاً مع الحلول." />
+  <meta name="theme-color" content="#CE1126" />
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;800;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <script>
+    // تطبيق الوضع الليلي قبل الرسم لتجنب الوميض
+    (function () {
+      try {
+        var t = localStorage.getItem("civics-theme");
+        if (t === "dark" || (!t && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          document.documentElement.classList.add("dark");
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/css/tailwind.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class="font-body bg-stone-50 text-stone-800 dark:bg-stone-950 dark:text-stone-100 antialiased">
+
+  <!-- ============ الشريط العلوي ============ -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/80 dark:bg-stone-950/80 border-b border-stone-200/70 dark:border-stone-800 no-print">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between gap-3">
+      <a href="#/" class="flex items-center gap-2.5 shrink-0">
+        <span class="flag-mark" aria-hidden="true"></span>
+        <span class="font-display font-extrabold text-base sm:text-lg leading-tight">التربية للمواطنة</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-1" aria-label="التنقل الرئيسي">
+        <a href="#/" data-nav="home" class="nav-link">الرئيسية</a>
+        <a href="#/teacher" data-nav="teacher" class="nav-link">مذكرة الأستاذ</a>
+        <a href="#/summary" data-nav="summary" class="nav-link">المذكرة الشاملة</a>
+        <a href="#/bank" data-nav="bank" class="nav-link">بنك الأسئلة</a>
+      </nav>
+      <div class="flex items-center gap-1">
+        <button id="themeBtn" class="icon-btn" aria-label="تبديل الوضع الليلي" title="الوضع الليلي">
+          <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"/></svg>
+        </button>
+        <button id="printBtn" class="icon-btn" aria-label="طباعة الصفحة" title="طباعة">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="app" class="min-h-[70vh]">
+
+    <!-- ============ الواجهة الرئيسية ============ -->
+    <section data-view="home" class="view">
+      <div class="hero relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 pt-14 pb-24 sm:pt-20 sm:pb-32 relative z-10">
+          <p class="inline-flex items-center gap-2 rounded-full bg-white/15 text-white/95 px-4 py-1.5 text-sm font-medium ring-1 ring-white/25">
+            🇧🇭 الصف الثاني الإعدادي — مملكة البحرين
+          </p>
+          <h1 class="mt-6 font-display font-black text-white text-3xl sm:text-5xl leading-[1.35] max-w-3xl">
+            منصة التربية للمواطنة
+            <span class="block text-white/85 text-xl sm:text-3xl font-bold mt-2">المرجع الشامل للاختبار الأول</span>
+          </h1>
+          <p class="mt-5 text-white/85 text-base sm:text-lg max-w-2xl leading-loose">
+            كل ما تحتاجه للاستعداد في مكان واحد: مذكرة الأستاذ مرتّبة، وملخص شامل يدمج الكتاب بالمذكرة، وبنك أسئلة مقالية تتدرّب عليه كأنك في قاعة الامتحان.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#/bank" class="btn-light">ابدأ التدريب الآن ←</a>
+            <a href="#/teacher" class="btn-ghost-light">تصفّح مذكرة الأستاذ</a>
+          </div>
+        </div>
+        <div class="serrated" aria-hidden="true"></div>
+      </div>
+
+      <div class="max-w-6xl mx-auto px-4 -mt-12 sm:-mt-16 relative z-20 pb-16">
+        <div class="grid gap-5 md:grid-cols-3">
+          <a href="#/teacher" class="dash-card group">
+            <span class="dash-icon">📌</span>
+            <h2 class="font-display font-extrabold text-xl mt-4">مذكرة الأستاذ الرسمية</h2>
+            <p class="text-stone-600 dark:text-stone-400 mt-2 leading-relaxed">المصطلحات، مواد الدستور، المحطات التاريخية، مبادئ الحكم، ضمانات القضاء، واختصاصات المجالس البلدية.</p>
+            <span class="dash-cta">افتح المذكرة ←</span>
+          </a>
+          <a href="#/summary" class="dash-card group">
+            <span class="dash-icon">📖</span>
+            <h2 class="font-display font-extrabold text-xl mt-4">المذكرة العامة الشاملة</h2>
+            <p class="text-stone-600 dark:text-stone-400 mt-2 leading-relaxed">ملخص تحليلي يدمج الكتاب المدرسي بمذكرة المعلم بأسلوب مشوّق يسهل حفظه قبل الاختبار.</p>
+            <span class="dash-cta">اقرأ الملخص ←</span>
+          </a>
+          <a href="#/bank" class="dash-card group">
+            <span class="dash-icon">✍️</span>
+            <h2 class="font-display font-extrabold text-xl mt-4">بنك الـ 30 سؤالاً التدريبي</h2>
+            <p class="text-stone-600 dark:text-stone-400 mt-2 leading-relaxed">أسئلة مقالية مقسّمة إلى خمس مجموعات، مع التبديل بين وضع المراجعة ووضع الامتحان الذاتي.</p>
+            <span class="dash-cta">ادخل بنك الأسئلة ←</span>
+          </a>
+        </div>
+
+        <div class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div class="stat"><b>30</b><span>سؤالاً مقالياً</span></div>
+          <div class="stat"><b>5</b><span>مجموعات موضوعية</span></div>
+          <div class="stat"><b>8</b><span>اختصاصات بلدية</span></div>
+          <div class="stat"><b id="homeProgress">0%</b><span>تقدّمك في البنك</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ مذكرة الأستاذ ============ -->
+    <section data-view="teacher" class="view hidden">
+      <div class="page-head">
+        <div class="max-w-6xl mx-auto px-4">
+          <p class="eyebrow">📌 القسم الأول</p>
+          <h1 class="page-title">مذكرة الأستاذ الرسمية</h1>
+          <p class="page-sub">المحتوى المعتمد للاختبار الأول، مرتّب في بطاقات وجداول واضحة.</p>
+          <nav class="toc no-print" aria-label="محتويات المذكرة">
+            <a href="#t-terms">المصطلحات</a>
+            <a href="#t-const">مواد الدستور</a>
+            <a href="#t-time">المحطات التاريخية</a>
+            <a href="#t-princ">مبادئ الحكم</a>
+            <a href="#t-jud">القضاء والوصايا</a>
+            <a href="#t-muni">المجالس البلدية</a>
+          </nav>
+        </div>
+      </div>
+      <div id="teacherContent" class="max-w-6xl mx-auto px-4 py-10 space-y-14"></div>
+    </section>
+
+    <!-- ============ المذكرة العامة الشاملة ============ -->
+    <section data-view="summary" class="view hidden">
+      <div class="page-head">
+        <div class="max-w-6xl mx-auto px-4">
+          <p class="eyebrow">📖 القسم الثاني</p>
+          <h1 class="page-title">المذكرة العامة الشاملة</h1>
+          <p class="page-sub">ملخص الكتاب والمذكرة في رحلة واحدة: من الفكرة إلى الدستور، ومن التاريخ إلى المجلس البلدي.</p>
+        </div>
+      </div>
+
+      <article class="max-w-3xl mx-auto px-4 py-10 prose-ar">
+        <div class="lead-box">
+          <p>تخيّل الوطن بيتاً كبيراً: <strong>الشريعة</strong> أساسه، و<strong>الدستور</strong> مخطّطه، و<strong>السلطات الثلاث</strong> أعمدته، و<strong>المجالس البلدية</strong> نوافذه المطلّة على حياة الناس اليومية. بهذه الصورة الواحدة تستطيع أن تحفظ المنهج كلّه.</p>
+        </div>
+
+        <h2><span class="num">1</span> مفاتيح الفهم: الشورى والشأن العام</h2>
+        <p>تبدأ المواطنة بكلمتين. الأولى <strong>الشورى</strong>، وهي «طلب الرأي والمشورة من أهل الخبرة والاختصاص»؛ فالقرار الحكيم لا يولد في عزلة، بل يُصنع بالتشاور. والثانية <strong>الشأن العام</strong>، وهو «كل ما له علاقة بالمصالح المشتركة لجميع أفراد المجتمع أو لفئة واسعة منه».</p>
+        <div class="memo">
+          <b>🧠 احفظها بثلاث كلمات:</b> الشأن العام <em>يتعلق</em> بالمصلحة العامة، <em>يهم</em> أفراد المجتمع، <em>يهدف</em> لخدمة المجتمع وتحقيق الصالح العام. (يتعلق — يهم — يهدف)
+        </div>
+        <p>أما <strong>التشريعات</strong> فهي القواعد والقوانين المكتوبة التي تنظم شؤون الدولة والمجتمع، وتستمد شرعيتها من الشريعة الإسلامية والدستور؛ وبها تصبح البحرين دولة مؤسسات وقانون.</p>
+
+        <h2><span class="num">2</span> هوية الحكم: المادة الأولى من الدستور</h2>
+        <p>نظام الحكم في مملكة البحرين <strong>ملكي، وراثي، دستوري</strong>. ثلاث صفات تكمل بعضها: <em>ملكي</em> لأن على رأسه ملك، و<em>وراثي</em> لأنه ينتقل داخل الأسرة الحاكمة، و<em>دستوري</em> لأنه منضبط بأحكام الدستور.</p>
+        <ul>
+          <li><strong>مسار الانتقال:</strong> من الشيخ عيسى بن سلمان آل خليفة إلى ابنه الأكبر الشيخ حمد بن عيسى آل خليفة، ثم إلى أكبر أبنائه <em>طبقةً بعد طبقة</em>.</li>
+          <li><strong>الاستثناء:</strong> للملك أن يعيّن قيد حياته خلفاً له ابناً آخر من أبنائه غير الابن الأكبر، طبقاً لأحكام مرسوم التوارث.</li>
+          <li><strong>الحماية:</strong> تُنظَّم سائر أحكام التوارث بمرسوم ملكي خاص له <em>صفة دستورية</em>، لا يُعدَّل إلا وفقاً لأحكام <strong>المادة (120)</strong>.</li>
+        </ul>
+        <div class="memo"><b>🔑 مفتاح الحفظ:</b> «الأكبر فالأكبر، إلا إذا اختار الملك، والمرسوم محميّ بالمادة 120».</div>
+
+        <h2><span class="num">3</span> توازن القوة: المادة (32)</h2>
+        <p>يقوم نظام الحكم على <strong>فصل السلطات التشريعية والتنفيذية والقضائية مع تعاونها</strong> وفقاً لأحكام الدستور. الفصل يمنع تركّز السلطة في يد واحدة، والتعاون يمنع تعطّل الدولة؛ فهي كفريق واحد لكل لاعب فيه مركزه.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>السلطة</th><th>من يتولاها؟</th><th>وظيفتها باختصار</th></tr></thead>
+            <tbody>
+              <tr><td>التشريعية</td><td>الملك والمجلس الوطني</td><td>سنّ القوانين</td></tr>
+              <tr><td>التنفيذية</td><td>الملك مع مجلس الوزراء والوزراء</td><td>تنفيذ القوانين وإدارة الدولة</td></tr>
+              <tr><td>القضائية</td><td>المحاكم — وتصدر الأحكام باسم الملك</td><td>الفصل في المنازعات وإقامة العدل</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2><span class="num">4</span> القضاء: ميزان الحقوق والحريات</h2>
+        <p>يُعدّ القضاء أساساً للحكم وضامناً للحقوق والحريات، ويستند إلى ثلاث دعائم: <strong>شرف القضاء، ونزاهة القضاة، وعدل القضاة</strong>. فإذا اطمأن الناس إلى قضائهم اطمأنوا إلى وطنهم.</p>
+        <div class="memo"><b>🧠 تذكّر:</b> «شرفٌ — نزاهةٌ — عدل»: الأولى للقضاء مؤسسةً، والأخريان للقضاة أشخاصاً.</div>
+
+        <h2><span class="num">5</span> وصايا حكام آل خليفة: حكمة الاستمرار</h2>
+        <p>لم تكن الوصايا مجرد كلمات، بل منهجاً يضمن استمرار الدولة واستقرارها. ومن أهدافها وغاياتها:</p>
+        <ol>
+          <li>الانتقال السلس والهادئ للحكم داخل أسرة آل خليفة.</li>
+          <li>المحافظة على ثوابت وأسس نظام الحكم.</li>
+          <li>حسن إدارة شؤون البلاد، بوضع مصالح الوطن والمواطنين فوق كل اعتبار.</li>
+          <li>تلبية طموحات الشعب في التنمية والاستقرار.</li>
+        </ol>
+
+        <h2><span class="num">6</span> الأعمدة الخمسة: مبادئ وقيم نظام الحكم</h2>
+        <div class="pillars">
+          <div><b>الشريعة الإسلامية</b><span>المصدر الرئيسي للتشريع، ومنها تستمد القوانين شرعيتها.</span></div>
+          <div><b>الشورى</b><span>المشاركة في الرأي وصناعة القرار.</span></div>
+          <div><b>العدل والإحسان</b><span>العدل يعطي كل ذي حق حقه، والإحسان يزرع التكافل والعطاء.</span></div>
+          <div><b>التضحية في سبيل الوطن</b><span>تجلّت في فتح البحرين عام 1783م على يد الشيخ أحمد الفاتح.</span></div>
+          <div><b>العادات والتقاليد المرعية</b><span>المجالس المفتوحة، والتضامن الوطني و«فريق البحرين» في الأزمات.</span></div>
+        </div>
+        <div class="memo"><b>🔑 جملة الحفظ:</b> «شريعةٌ تُشاوِر، فتعدل وتُحسن، وتضحّي، وتحفظ تقاليدها».</div>
+
+        <h2><span class="num">7</span> من الكتّاب إلى المدرسة، ومن الحيّ إلى البلدية</h2>
+        <p>شهدت البحرين مبكراً تحولات صنعت الدولة الحديثة:</p>
+        <ul>
+          <li><strong>التعليم:</strong> كانت <em>الكتاتيب</em> مراكز تقليدية لتعليم القرآن الكريم ومبادئ القراءة والكتابة والحساب، ثم بدأ الانتقال إلى <strong>التعليم النظامي المؤسسي في بدايات القرن العشرين</strong>.</li>
+          <li><strong>البلدية:</strong> أُنشئت <strong>بلدية المنامة عام 1919م</strong> أولَ بلدية في البحرين؛ لحفظ الصحة العامة ورفاهية السكان وتنظيم الشؤون اليومية للمدن.</li>
+          <li><strong>المرأة:</strong> شاركت المرأة البحرينية في الانتخابات البلدية لأول مرة عام <strong>1950م</strong> (حسب مذكرة المعلم).</li>
+        </ul>
+
+        <h2><span class="num">8</span> المجلس البلدي: الحكومة الأقرب إليك</h2>
+        <p>عضو المجلس البلدي <strong>حلقة وصل أساسية بين المواطن والأجهزة التنفيذية</strong>. وللمجالس البلدية ثمانية اختصاصات، قسّمناها إلى أربع عائلات ليسهل حفظها:</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>المجموعة</th><th>الاختصاصات</th></tr></thead>
+            <tbody>
+              <tr><td>🛣️ الطرق والتسمية</td><td>اقتراح إنشاء الطرق وتحسينها — اقتراح تسمية الضواحي والأحياء والشوارع</td></tr>
+              <tr><td>🌳 الجمال والترفيه</td><td>تجميل وتنظيف الشوارع والميادين والأماكن العامة والشواطئ — إنشاء الحدائق والمتنزهات وتطويرها</td></tr>
+              <tr><td>🩺 الصحة والخدمات</td><td>اقتراح الأنظمة الخاصة بالصحة العامة — مراقبة تنفيذ الأنظمة المتعلقة بالإنارة والمياه والصرف الصحي</td></tr>
+              <tr><td>🌊 البيئة والشواطئ</td><td>حماية البيئة من التلوث — حماية الشواطئ من التآكل والتلوث</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="final-box">
+          <h3>✨ خلاصة الخلاصة قبل دخول القاعة</h3>
+          <ul>
+            <li>الشورى = طلب الرأي من أهل الخبرة والاختصاص.</li>
+            <li>نظام الحكم: ملكي وراثي دستوري (م1)، وتعديل التوارث وفق (م120).</li>
+            <li>فصل السلطات الثلاث مع تعاونها (م32).</li>
+            <li>القضاء: شرف القضاء، نزاهة القضاة، عدل القضاة.</li>
+            <li>المبادئ الخمسة: الشريعة، الشورى، العدل والإحسان، التضحية، العادات والتقاليد.</li>
+            <li>1919م بلدية المنامة — بدايات القرن العشرين التعليم النظامي — 1950م مشاركة المرأة (حسب المذكرة).</li>
+          </ul>
+          <a href="#/bank" class="btn-primary mt-5 no-print">اختبر نفسك الآن ←</a>
+        </div>
+      </article>
+    </section>
+
+    <!-- ============ بنك الأسئلة ============ -->
+    <section data-view="bank" class="view hidden">
+      <div class="page-head">
+        <div class="max-w-6xl mx-auto px-4">
+          <p class="eyebrow">✍️ القسم الثالث</p>
+          <h1 class="page-title">بنك الـ 30 سؤالاً التدريبي</h1>
+          <p class="page-sub">أسئلة مقالية بدون خيارات. اختر وضعك: راجع الحلول، أو أخفِها واختبر نفسك كأنك في قاعة الامتحان.</p>
+        </div>
+      </div>
+
+      <div class="max-w-4xl mx-auto px-4 py-8">
+        <!-- شريط التحكم -->
+        <div class="control-bar no-print">
+          <div class="mode-switch" role="radiogroup" aria-label="وضع العرض">
+            <button type="button" role="radio" data-mode="exam" class="mode-opt">🔒 الامتحان الذاتي <small>بدون إجابات</small></button>
+            <button type="button" role="radio" data-mode="review" class="mode-opt">👁️ المراجعة <small>مع الحلول</small></button>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-3 mt-4">
+            <label class="relative flex-1">
+              <span class="sr-only">ابحث في الأسئلة</span>
+              <input id="search" type="search" placeholder="ابحث في الأسئلة والإجابات…" class="search-input" />
+            </label>
+            <button id="resetBtn" type="button" class="btn-outline">↺ إعادة ضبط التقدّم</button>
+          </div>
+
+          <div id="groupTabs" class="chips mt-4" role="tablist" aria-label="مجموعات الأسئلة"></div>
+
+          <div class="progress-row mt-4">
+            <div class="flex items-center justify-between text-sm">
+              <span>تقييمك الذاتي: <b id="scoreKnown">0</b> أتقنتها · <b id="scoreReview">0</b> تحتاج مراجعة</span>
+              <span id="scorePct" class="font-bold text-bh-600 dark:text-bh-400">0%</span>
+            </div>
+            <div class="progress mt-2"><div id="progressBar" style="width:0%"></div></div>
+          </div>
+        </div>
+
+        <p id="modeHint" class="mode-hint no-print"></p>
+
+        <div id="questionList" class="space-y-10 mt-6"></div>
+        <p id="emptyState" class="hidden text-center text-stone-500 py-16">لا توجد أسئلة مطابقة لبحثك.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- شريط التنقل السفلي للجوال -->
+  <nav class="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 dark:bg-stone-900/95 backdrop-blur border-t border-stone-200 dark:border-stone-800 grid grid-cols-4 no-print" aria-label="التنقل السفلي">
+    <a href="#/" data-nav="home" class="tab-link"><span>🏠</span>الرئيسية</a>
+    <a href="#/teacher" data-nav="teacher" class="tab-link"><span>📌</span>الأستاذ</a>
+    <a href="#/summary" data-nav="summary" class="tab-link"><span>📖</span>الشاملة</a>
+    <a href="#/bank" data-nav="bank" class="tab-link"><span>✍️</span>الأسئلة</a>
+  </nav>
+
+  <footer class="border-t border-stone-200 dark:border-stone-800 mt-10 pb-20 md:pb-0">
+    <div class="max-w-6xl mx-auto px-4 py-8 text-center text-sm text-stone-500 dark:text-stone-400 leading-loose">
+      منصة التربية للمواطنة — الصف الثاني الإعدادي، مملكة البحرين 🇧🇭<br />
+      مرجع تعليمي للمراجعة؛ يُرجى الرجوع إلى الكتاب المدرسي ومذكرة المعلم بوصفهما المرجع الأساسي.
+    </div>
+  </footer>
+
+  <button id="toTop" class="to-top no-print" aria-label="العودة إلى الأعلى">↑</button>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
