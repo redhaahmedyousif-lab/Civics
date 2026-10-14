@@ -47,8 +47,9 @@
           <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32 1.41-1.41"/></svg>
         </button>
-        <button id="printBtn" class="icon-btn" aria-label="طباعة الصفحة" title="طباعة">
+        <button id="printBtn" class="print-btn" aria-haspopup="dialog" aria-controls="printModal" title="طباعة أو تصدير PDF">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+          <span class="hidden sm:inline">طباعة / PDF</span>
         </button>
       </div>
     </div>
@@ -104,7 +105,7 @@
           <div class="stat"><b>30</b><span>سؤالاً مقالياً</span></div>
           <div class="stat"><b>5</b><span>مجموعات موضوعية</span></div>
           <div class="stat"><b>8</b><span>اختصاصات بلدية</span></div>
-          <div class="stat"><b id="homeProgress">0%</b><span>تقدّمك في البنك</span></div>
+          <a href="#/bank" class="stat"><b id="homeProgress">0 / 30</b><span>إجاباتك الصحيحة</span></a>
         </div>
       </div>
     </section>
@@ -256,15 +257,18 @@
               <span class="sr-only">ابحث في الأسئلة</span>
               <input id="search" type="search" placeholder="ابحث في الأسئلة والإجابات…" class="search-input" />
             </label>
-            <button id="resetBtn" type="button" class="btn-outline">↺ إعادة ضبط التقدّم</button>
+            <div class="flex gap-2">
+              <button id="finishBtn" type="button" class="btn-primary btn-sm">📊 إنهاء وعرض النتيجة</button>
+              <button id="resetBtn" type="button" class="btn-outline">↺ اختبار جديد</button>
+            </div>
           </div>
 
           <div id="groupTabs" class="chips mt-4" role="tablist" aria-label="مجموعات الأسئلة"></div>
 
           <div class="progress-row mt-4">
             <div class="flex items-center justify-between text-sm">
-              <span>تقييمك الذاتي: <b id="scoreKnown">0</b> أتقنتها · <b id="scoreReview">0</b> تحتاج مراجعة</span>
-              <span id="scorePct" class="font-bold text-bh-600 dark:text-bh-400">0%</span>
+              <span>✅ <b id="scoreKnown">0</b> صحيحة · ❌ <b id="scoreReview">0</b> خاطئة · ⏳ <b id="scoreLeft">30</b> متبقية</span>
+              <span class="font-bold text-bh-600 dark:text-bh-400"><span id="scoreFrac">0 / 30</span> · <span id="scorePct">0%</span></span>
             </div>
             <div class="progress mt-2"><div id="progressBar" style="width:0%"></div></div>
           </div>
@@ -273,7 +277,11 @@
         <p id="modeHint" class="mode-hint no-print"></p>
 
         <div id="questionList" class="space-y-10 mt-6"></div>
-        <p id="emptyState" class="hidden text-center text-stone-500 py-16">لا توجد أسئلة مطابقة لبحثك.</p>
+        <p id="emptyState" class="hidden text-center text-stone-500 py-16">لا توجد أسئلة مطابقة.</p>
+        <div class="finish-cta no-print">
+          <p>أنهيت التدريب؟ اطّلع على تقرير نتيجتك والأسئلة التي تحتاج إلى مراجعة.</p>
+          <button type="button" class="btn-primary" data-open-report>📊 إنهاء الاختبار وعرض النتيجة</button>
+        </div>
       </div>
     </section>
   </main>
@@ -292,6 +300,50 @@
       مرجع تعليمي للمراجعة؛ يُرجى الرجوع إلى الكتاب المدرسي ومذكرة المعلم بوصفهما المرجع الأساسي.
     </div>
   </footer>
+
+  <!-- ============ نافذة الطباعة والتصدير ============ -->
+  <dialog id="printModal" class="modal no-print" aria-labelledby="printTitle">
+    <form method="dialog" class="modal-body" id="printForm">
+      <div class="modal-head">
+        <h2 id="printTitle">🖨️ طباعة / تصدير PDF</h2>
+        <button type="submit" value="cancel" class="icon-btn" aria-label="إغلاق">✕</button>
+      </div>
+
+      <fieldset class="opt-group">
+        <legend>أ. نطاق المحتوى</legend>
+        <label class="opt"><input type="radio" name="scope" value="teacher" /><span><b>📌 مذكرة الأستاذ الرسمية</b><small>المصطلحات، الدستور، المحطات، المبادئ، القضاء، المجالس البلدية.</small></span></label>
+        <label class="opt"><input type="radio" name="scope" value="summary" /><span><b>📖 المذكرة العامة الشاملة</b><small>الملخص التحليلي الكامل مع الجداول وجُمل الحفظ.</small></span></label>
+        <label class="opt"><input type="radio" name="scope" value="bank" /><span><b>✍️ بنك الأسئلة</b><small>جميع الأسئلة الثلاثين مرقّمة ومقسّمة إلى مجموعات.</small></span></label>
+      </fieldset>
+
+      <fieldset class="opt-group" id="answersGroup">
+        <legend>ب. إعدادات الأسئلة</legend>
+        <label class="opt"><input type="radio" name="answers" value="with" checked /><span><b>📗 مع الإجابات النموذجية</b><small>نسخة مراجعة كاملة.</small></span></label>
+        <label class="opt"><input type="radio" name="answers" value="without" /><span><b>📝 بدون إجابات</b><small>ورقة اختبار بأسطر فارغة للحل الورقي.</small></span></label>
+      </fieldset>
+
+      <p class="modal-note">💡 لحفظ الملف بصيغة PDF اختر «حفظ بتنسيق PDF / Save as PDF» من قائمة الطابعة.</p>
+
+      <div class="modal-actions">
+        <button type="submit" value="cancel" class="btn-outline">إلغاء</button>
+        <button type="submit" value="print" class="btn-primary">🖨️ طباعة / حفظ PDF</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- ============ تقرير النتيجة ============ -->
+  <dialog id="reportModal" class="modal no-print" aria-labelledby="reportTitle">
+    <div class="modal-body">
+      <div class="modal-head">
+        <h2 id="reportTitle">📊 تقرير النتيجة النهائي</h2>
+        <button type="button" class="icon-btn" data-close aria-label="إغلاق">✕</button>
+      </div>
+      <div id="reportContent"></div>
+    </div>
+  </dialog>
+
+  <!-- محتوى الطباعة المخصصة (يُبنى عند الطلب) -->
+  <div id="printArea" aria-hidden="true"></div>
 
   <button id="toTop" class="to-top no-print" aria-label="العودة إلى الأعلى">↑</button>
 
